@@ -1,3 +1,5 @@
+package main.lab1.copyfiles;
+
 import java.io.*;
 
 class CopyFiles {

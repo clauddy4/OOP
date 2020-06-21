@@ -1,3 +1,8 @@
+package main.lab1.copyfiles;
+
+import main.lab1.copyfiles.CopyFiles;
+import main.lab1.copyfiles.InputOutput;
+
 class Main {
     public static void main(String[] args) {
         try {
