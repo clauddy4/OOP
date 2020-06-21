@@ -1,4 +1,4 @@
-package main.lab1.radix.src;
+package main.lab1.radix;
 
 import java.util.ArrayList;
 import java.util.List;
