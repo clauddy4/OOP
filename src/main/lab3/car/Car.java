@@ -1,24 +1,24 @@
 package main.lab3.car;
 
-class Car {
+public class Car {
     private boolean engineState = false;
-    private EDirection direction = EDirection.STAY;
-    private Transmission transmission = new Transmission();
+    private Direction direction = Direction.STAY;
+    private final Transmission transmission = new Transmission();
     private int speed;
 
-    EDirection getDirection() {
+    public Direction getDirection() {
         return direction;
     }
 
-    boolean getEngineState() {
+    public boolean getEngineState() {
         return engineState;
     }
 
-    int getGear() {
+    public int getGear() {
         return transmission.getGear();
     }
 
-    boolean setGear(int nextGear) {
+    public boolean setGear(int nextGear) {
         setDirection(nextGear);
         if (!engineState) {
             if (nextGear == 0) {
@@ -30,26 +30,26 @@ class Car {
         return false;
     }
 
-    int getSpeed() {
+    public int getSpeed() {
         return speed;
     }
 
     private void setDirection(int nextGear) {
         if (transmission.getGear() > 0) {
-            if (direction != EDirection.BACK && speed != 0) {
-                direction = EDirection.FORWARD;
+            if (direction != Direction.BACK && speed != 0) {
+                direction = Direction.FORWARD;
             }
         } else if (transmission.getGear() < 0) {
-            direction = EDirection.BACK;
+            direction = Direction.BACK;
         } else if (speed == 0) {
-            direction = EDirection.STAY;
+            direction = Direction.STAY;
         }
-        if ((nextGear == -1 && speed == 0 && (direction == EDirection.STAY || direction == EDirection.BACK)) || (speed == 0 && nextGear == 0)) {
-            direction = EDirection.STAY;
+        if ((nextGear == -1 && speed == 0 && (direction == Direction.STAY || direction == Direction.BACK)) || (speed == 0 && nextGear == 0)) {
+            direction = Direction.STAY;
         }
     }
 
-    boolean turnOnEngine() {
+    public boolean turnOnEngine() {
         if (engineState) {
             return false;
         }
@@ -57,23 +57,23 @@ class Car {
         return true;
     }
 
-    boolean turnOffEngine() {
-        if (engineState && transmission.getGear() == 0 && direction.equals(EDirection.STAY)) {
+    public boolean turnOffEngine() {
+        if (engineState && transmission.getGear() == 0 && direction.equals(Direction.STAY)) {
             engineState = false;
             return true;
         }
         return false;
     }
 
-    boolean setSpeed(int nextSpeed) {
+    public boolean setSpeed(int nextSpeed) {
         if (transmission.getGear() == -1 && nextSpeed != 0) {
-            direction = EDirection.BACK;
+            direction = Direction.BACK;
         }
         if (transmission.getGear() == 0 && nextSpeed == 0) {
-            direction = EDirection.STAY;
+            direction = Direction.STAY;
         }
         if (transmission.getGear() > 0 && nextSpeed > 0 && transmission.checkCanSetSpeed(nextSpeed, speed)) {
-            direction = EDirection.FORWARD;
+            direction = Direction.FORWARD;
         }
         if (transmission.checkCanSetSpeed(nextSpeed, speed)) {
             speed = nextSpeed;

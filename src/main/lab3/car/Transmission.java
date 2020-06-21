@@ -8,14 +8,14 @@ class Transmission {
         return gear;
     }
 
-    boolean setGear(int nextGear, int speed, EDirection direction) {
-        boolean canSetReverseGear = nextGear == gears[0] && speed == 0 && (direction == EDirection.STAY || direction == EDirection.BACK);
+    boolean setGear(int nextGear, int speed, Direction direction) {
+        boolean canSetReverseGear = nextGear == gears[0] && speed == 0 && (direction == Direction.STAY || direction == Direction.BACK);
         boolean canSetNeutralGear = nextGear == gears[1] && 0 <= speed && speed <= 150;
-        boolean canSetFirstGear = nextGear == gears[2] && 0 <= speed && speed <= 30 && (direction == EDirection.FORWARD || direction == EDirection.STAY);
-        boolean canSetSecondGear = nextGear == gears[3] && 20 <= speed && speed <= 50 && direction == EDirection.FORWARD;
-        boolean canSetThirdGear = nextGear == gears[4] && 30 <= speed && speed <= 60 && direction == EDirection.FORWARD;
-        boolean canSetFourthGear = nextGear == gears[5] && 40 <= speed && speed <= 90 && direction == EDirection.FORWARD;
-        boolean canSetFifthGear = nextGear == gears[6] && 50 <= speed && speed <= 150 && direction == EDirection.FORWARD;
+        boolean canSetFirstGear = nextGear == gears[2] && 0 <= speed && speed <= 30 && (direction == Direction.FORWARD || direction == Direction.STAY);
+        boolean canSetSecondGear = nextGear == gears[3] && 20 <= speed && speed <= 50 && direction == Direction.FORWARD;
+        boolean canSetThirdGear = nextGear == gears[4] && 30 <= speed && speed <= 60 && direction == Direction.FORWARD;
+        boolean canSetFourthGear = nextGear == gears[5] && 40 <= speed && speed <= 90 && direction == Direction.FORWARD;
+        boolean canSetFifthGear = nextGear == gears[6] && 50 <= speed && speed <= 150 && direction == Direction.FORWARD;
         if (canSetReverseGear) {
             return setReverseGear();
         } else if (canSetNeutralGear) {

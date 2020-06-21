@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        boolean running = true;
+        boolean driving = true;
         final Car car = new Car();
-        while (running) {
+        while (driving) {
             final Scanner scanner = new Scanner(System.in);
             final String command = scanner.next();
             switch (command) {
@@ -24,13 +24,13 @@ public class Main {
                 case "EngineOn":
                     boolean engine = car.turnOnEngine();
                     if (!engine) {
-                        System.out.println("Двигатель не может быть включён");
+                        System.out.println("Engine cannot be turned on");
                     }
                     break;
                 case "EngineOff":
                     engine = car.turnOffEngine();
                     if (!engine) {
-                        System.out.println("Двигатель не может быть выключен");
+                        System.out.println("Engine cannot be turned off");
                     }
                     break;
                 case "SetGear":
@@ -41,11 +41,11 @@ public class Main {
                     final int speed = scanner.nextInt();
                     car.setSpeed(speed);
                     break;
-                case "Exit":
-                    running = false;
+                case "Stop":
+                    driving = false;
                     break;
                 default:
-                    System.out.println("Enter correctly");
+                    System.out.println("Please enter one of the options: Info, EngineOn, EngineOff, SetGear, SetSpeed, Stop");
                     break;
             }
         }
