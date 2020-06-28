@@ -5,6 +5,9 @@ public class Body {
     double volume;
     double mass;
 
+    final int densityOfWater = 1000;
+    final int g = 1000;
+
     Body(double density, double volume, double mass) {
         this.density = density;
         this.volume = volume;
@@ -24,7 +27,7 @@ public class Body {
     }
 
     public double GetWeightInWater() {
-        return (GetDensity() - 1000) * GetVolume() * 10;
+        return (GetDensity() - densityOfWater) * GetVolume() * g;
     }
 
     String OutFigMass() {

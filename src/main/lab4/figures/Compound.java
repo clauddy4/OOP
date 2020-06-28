@@ -35,7 +35,7 @@ class Compound extends Body {
     String OutFigMass() {
         for (Body fig: compoundFigures) {
             System.out.print(fig.GetName());
-            System.out.print(" масса ");
+            System.out.print(" mass ");
             System.out.println(fig.GetMass());
         }
         return "";
@@ -45,7 +45,7 @@ class Compound extends Body {
     String OutFigMassInWater() {
         for (Body fig: compoundFigures) {
             System.out.print(fig.GetName());
-            System.out.print(" масса ");
+            System.out.print(" mass ");
             System.out.println(fig.GetWeightInWater());
         }
         return "";
@@ -60,7 +60,7 @@ class Compound extends Body {
                 break;
             }
             if (name.equals("compound")) {
-                System.out.println("Введите фигуры для составного тела:");
+                System.out.println("Enter figures for the composite body:");
                 compound.AddChildBody(scanner, figures, compound);
             } else {
                 figures.add(figure);
