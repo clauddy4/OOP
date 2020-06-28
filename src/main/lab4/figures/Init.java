@@ -62,6 +62,7 @@ public class Init {
                 figureWithLowestMass = figure;
             }
         }
+        System.out.println(figureWithLowestMass);
         return figureWithLowestMass;
     }
 }
