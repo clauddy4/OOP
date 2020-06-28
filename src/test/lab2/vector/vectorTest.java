@@ -3,9 +3,7 @@ package test.lab2.vector;
 import main.lab2.vector.Main;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.util.Scanner;
 import java.util.Vector;
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,7 +21,7 @@ public class vectorTest {
     }
 
     @Test
-    public void testFormatConversion() throws IOException {
+    public void testFormat() throws IOException {
         Scanner input = new Scanner("-5 2 3.5 10");
         String[] inputString = Main.read(input);
         Vector<Float> vector = Main.program(inputString);
@@ -37,7 +35,7 @@ public class vectorTest {
     }
 
     @Test
-    public void testFormatConversion2() throws IOException {
+    public void testFormatConversion() throws IOException {
         Scanner input = new Scanner("-5 2 3.5555555 10");
         String[] inputString = Main.read(input);
         Vector<Float> vector = Main.program(inputString);
@@ -49,4 +47,5 @@ public class vectorTest {
         rightVector.add("-20");
         assertEquals(vectorInFormat, rightVector);
     }
+
 }
